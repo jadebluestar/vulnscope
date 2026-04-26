@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Database
+*.db
+
+# Scan outputs
+scan_outputs/
+
+# Env
+.env
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+
+# Logs
+*.log
