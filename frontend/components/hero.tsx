@@ -76,21 +76,13 @@ export default function Hero() {
         initial="hidden"
         animate="show"
       >
-        {/* Badge */}
-        <motion.div
-          variants={item}
-          className="border border-border-accent bg-surface rounded-full px-4 py-1.5 flex items-center gap-2"
-        >
-        
-        </motion.div>
-
         {/* Title */}
         <motion.div variants={item} className="space-y-1">
-          <h1 className="font-display text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[8.5rem] leading-none tracking-widest text-primary">
+          <h1 className="font-display text-[2.75rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] leading-none tracking-widest text-primary">
             AUTOMATED
           </h1>
           <h1
-            className="font-display text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[8.5rem] leading-none tracking-widest text-amber"
+            className="font-display text-[2.75rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] leading-none tracking-widest text-amber"
             style={{
               textShadow:
                 "0 0 20px rgba(232, 124, 30, 0.3), 0 0 40px rgba(232, 124, 30, 0.15)",
@@ -98,7 +90,7 @@ export default function Hero() {
           >
             WEB APP
           </h1>
-          <h1 className="font-display text-[3.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[8.5rem] leading-none tracking-widest text-primary">
+          <h1 className="font-display text-[2.75rem] sm:text-[4rem] md:text-[5rem] lg:text-[7rem] leading-none tracking-widest text-primary">
             PEN TESTING
           </h1>
         </motion.div>
