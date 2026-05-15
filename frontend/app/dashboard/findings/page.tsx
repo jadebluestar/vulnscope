@@ -33,7 +33,7 @@ export default function FindingsPage() {
 
       {selectedFinding && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <Card className="max-h-[90vh] w-full max-w-4xl overflow-y-auto border border-slate-800 bg-bg-secondary px-8 py-8">
+          <Card className="max-h-[90vh] w-full max-w-4xl overflow-y-auto border border-slate-800 bg-[#0b0f14] px-8 py-8">
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.25em] text-amber">Finding Detail</p>
