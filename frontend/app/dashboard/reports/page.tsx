@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Download, Eye, FileText } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useDashboard } from "@/lib/store/useDashboard";
+import { downloadPDF } from "@/lib/api/client";
 
 export default function ReportsPage() {
   const { reports, scans, targets } = useDashboard();
@@ -70,14 +71,14 @@ export default function ReportsPage() {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-end gap-2">
-                        <Link
-                          href={`/dashboard/reports/${report.scanId}`}
+                        <Link href={`http://127.0.0{report.scanId}.pdf`} target="_blank" rel="noopener noreferrer"
                           className="rounded-full border border-slate-700 p-2 text-muted hover:text-primary"
                         >
                           <Eye size={16} />
                         </Link>
                         <button
                           type="button"
+                          onClick={() => void downloadPDF(report.scanId)}
                           className="rounded-full border border-slate-700 p-2 text-muted hover:text-primary"
                         >
                           <Download size={16} />

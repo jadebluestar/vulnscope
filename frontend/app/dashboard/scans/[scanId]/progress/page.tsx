@@ -148,8 +148,7 @@ export default function ScanProgressPage() {
           Cancel Scan
         </button>
         {totalProgress === 100 && (
-          <Link
-            href={`/dashboard/reports/${scanId}`}
+          <Link href={`http://127.0.0{report.scanId}.pdf`} target="_blank" rel="noopener noreferrer"
             className="rounded-full bg-amber px-4 py-2 text-sm font-semibold text-bg-primary"
           >
             View Full Report

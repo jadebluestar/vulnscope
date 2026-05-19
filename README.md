@@ -86,6 +86,41 @@ vulnscope/
 
 ---
 
+## Kali Setup (Recommended)
+
+Use the full, updated Kali runbook at repo root:
+
+- `../RUN_LOCAL.md`
+
+It includes:
+- Prerequisite installation (`python3`, `venv`, `nmap`, `nikto`, `sqlmap`, `node`, `npm`)
+- Backend and frontend startup in separate terminals
+- `.env.local` API wiring to `http://127.0.0.1:5000`
+- Scanner verification and troubleshooting
+- End-to-end validation flow (auth -> target -> scan -> report download)
+
+### Fast start (Kali)
+
+```bash
+# Terminal A
+cd vulnscope
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python3 app.py
+```
+
+```bash
+# Terminal B
+cd vulnscope/frontend
+npm install
+echo "NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:5000" > .env.local
+npm run dev
+```
+
+Backend: `http://127.0.0.1:5000`  
+Frontend: `http://127.0.0.1:3000`
+
 ## Quick Start
 
 ### Prerequisites

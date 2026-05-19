@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // 1. Base URL – pick the value from NEXT_PUBLIC_API_BASE_URL or fallback
 // -----------------------------------------------------------------------------
-export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://10.91.167.192:5000';
+export const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:5000';
 
 // -----------------------------------------------------------------------------
 // 2. Token storage helpers – key is consistent and exposed for other modules

@@ -8,6 +8,7 @@ import { CVSSMeter } from "@/components/vulnscope/findings/cvss-meter";
 import { SeverityBadge } from "@/components/vulnscope/findings/severity-badge";
 import { useAuth } from "@/lib/store/useAuth";
 import { useDashboard } from "@/lib/store/useDashboard";
+import { downloadPDF } from "@/lib/api/client";
 
 export default function ReportDetailPage() {
   const params = useParams<{ scanId: string }>();
@@ -71,7 +72,7 @@ export default function ReportDetailPage() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3 border-t border-slate-800 pt-4">
-          <button type="button" className="rounded-full bg-bg-primary px-4 py-2 text-sm text-primary">
+          <button type="button" onClick={() => void downloadPDF(scanId)} className="rounded-full bg-bg-primary px-4 py-2 text-sm text-primary">
             <Download className="mr-2 inline h-4 w-4" />
             Download PDF
           </button>
