@@ -1,211 +1,397 @@
-# VulnScope 
+# VulnScope: AI-Enhanced Automated Web Application Penetration Testing & Vulnerability Reporting Framework
 
-> **AI-Enhanced Automated Web Application Penetration Testing & Vulnerability Reporting Framework**
-
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-ready-brightgreen)](https://fastapi.tiangolo.com)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 
 ---
 
-## What Is VulnScope?
+## 🚀 What Is VulnScope?
 
-VulnScope is an open-source, AI-enhanced automated penetration testing framework. Paste any URL — get a professional PDF vulnerability report in minutes.
+**VulnScope** is an open-source, AI-enhanced automated penetration testing framework that transforms web application security testing into a streamlined, developer-friendly experience.
 
-It chains **Nmap → Nikto → SQLMap → custom Python probes** into a single automated pipeline, then uses an **LLM (via OpenRouter)** to generate plain-English explanations and developer-ready fix code for every vulnerability found.
+Simply provide a target URL and VulnScope automatically performs reconnaissance, vulnerability assessment, AI-powered analysis, and generates a professional PDF security report within minutes.
 
-**The gap it fills:** Existing tools like Nessus and OpenVAS list vulnerabilities. VulnScope tells developers exactly how to fix them — with actual working code.
+### Why VulnScope?
 
----
+Traditional scanners such as Nessus and OpenVAS identify vulnerabilities but often leave developers searching for remediation guidance.
 
-## Features
+**VulnScope goes one step further** by:
 
-- 🔗 **One URL → Full Report** — paste a link, get a PDF automatically
-- 🤖 **AI-Generated Fixes** — LLM writes real PHP/Apache/Nginx fix code per finding
-- 🧪 **10 OWASP Top 10 Vulnerabilities** tested automatically
-- 🌐 **Two Scan Modes** — Aggressive (local/lab) and Passive (any public website)
-- 📄 **Professional PDF Report** — cover page, findings table, AI analysis, evidence appendix
-- 🖥️ **Web Interface** — paste URL in browser, watch progress bar, download report
-- 🔌 **Chrome Extension** — scan any site with one click from your browser
-- 📊 **Analytics Dashboard** — vulnerability trends, severity breakdown, scan history
-- 🔐 **User Auth** — register, login, manage your scan history
+* Detecting vulnerabilities automatically
+* Explaining findings in plain English
+* Generating developer-ready remediation code
+* Producing professional security reports
 
 ---
 
-## Vulnerabilities Detected
+## ✨ Features
 
-| ID   | Vulnerability               | CVSS  | Severity |
-|------|-----------------------------|-------|----------|
-| V-01 | SQL Injection               | 9.8   | Critical |
-| V-02 | Reflected XSS               | 6.1   | Medium   |
-| V-03 | Stored XSS                  | 8.0   | High     |
-| V-04 | Command Injection            | 9.0   | Critical |
-| V-05 | Insecure File Upload         | 8.8   | High     |
-| V-06 | Directory / Path Traversal   | 7.5   | High     |
-| V-07 | Broken Authentication        | 7.3   | High     |
-| V-08 | Missing HTTP Security Headers| 5.3   | Medium   |
-| V-09 | Open Ports / Outdated Services| 10.0 | Critical |
-| V-10 | Cross-Site Request Forgery   | 6.5   | Medium   |
+* 🔗 **One URL → Full Report**
+
+  * Paste a URL and receive a complete vulnerability assessment report.
+
+* 🤖 **AI-Generated Fixes**
+
+  * Uses OpenRouter-hosted LLMs to generate remediation code and security recommendations.
+
+* 🧪 **OWASP Top 10 Coverage**
+
+  * Automatically tests multiple common vulnerability categories.
+
+* 🌐 **Dual Scan Modes**
+
+  * Aggressive Mode (authorized internal targets)
+  * Passive Mode (public websites)
+
+* 📄 **Professional PDF Reports**
+
+  * Cover page
+  * Executive summary
+  * Findings table
+  * AI-generated analysis
+  * Evidence appendix
+
+* 🖥️ **Web Dashboard**
+
+  * Real-time scan progress
+  * Report downloads
+  * Scan management
+
+* 🔌 **Chrome Extension**
+
+  * Scan websites directly from your browser.
+
+* 📊 **Analytics Dashboard**
+
+  * Severity breakdowns
+  * Scan history
+  * Vulnerability trends
+
+* 🔐 **Authentication System**
+
+  * Registration
+  * Login
+  * Scan history management
 
 ---
 
-## Tech Stack
+# 🛡️ Vulnerabilities Detected
 
-| Layer        | Technology                          |
-|--------------|-------------------------------------|
-| Backend      | Python 3.10+, Flask, SQLite         |
-| Scanning     | Nmap, Nikto, SQLMap                 |
-| Custom Tests | Python `requests` library           |
-| AI Layer     | OpenRouter API (Mistral 7B free)    |
-| PDF Reports  | fpdf2                               |
-| Frontend     | React / Next.js + TypeScript        |
-| Extension    | Chrome Manifest V3                  |
-| Deployment   | ngrok (demo) / Linux VPS (prod)     |
+| ID   | Vulnerability                     | CVSS | Severity |
+| ---- | --------------------------------- | ---- | -------- |
+| V-01 | SQL Injection                     | 9.8  | Critical |
+| V-02 | Reflected XSS                     | 6.1  | Medium   |
+| V-03 | Stored XSS                        | 8.0  | High     |
+| V-04 | Command Injection                 | 9.0  | Critical |
+| V-05 | Insecure File Upload              | 8.8  | High     |
+| V-06 | Directory / Path Traversal        | 7.5  | High     |
+| V-07 | Broken Authentication             | 7.3  | High     |
+| V-08 | Missing HTTP Security Headers     | 5.3  | Medium   |
+| V-09 | Open Ports / Outdated Services    | 7.5  | High     |
+| V-10 | Cross-Site Request Forgery (CSRF) | 6.5  | Medium   |
+
+> **Note:** CVSS scores are based on commonly accepted industry practices and may vary depending on deployment context.
 
 ---
 
-## Project Structure
+# 🏗️ Tech Stack
 
-```
+| Layer                 | Technology                   |
+| --------------------- | ---------------------------- |
+| Backend               | Python 3.10+, Flask, SQLite  |
+| Scanning Engine       | Nmap, Nikto, SQLMap          |
+| Custom Security Tests | Python Requests Library      |
+| AI Layer              | OpenRouter API (Mistral 7B)  |
+| PDF Generation        | fpdf2                        |
+| Frontend              | React / Next.js + TypeScript |
+| Browser Extension     | Chrome Manifest V3           |
+| Deployment            | Linux VPS / ngrok            |
+
+---
+
+# 📂 Project Structure
+
+```text
 vulnscope/
-├── app.py                  ← Flask backend (all API routes)
-├── vulnscope.db            ← SQLite database (auto-created)
-├── scan_outputs/           ← Scan results and PDFs (auto-created)
+│
+├── app.py                      # Flask backend
+├── vulnscope.db                # SQLite database (auto-created)
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── scan_outputs/
 │   ├── {scan_id}/
 │   │   ├── nmap.xml
 │   │   ├── nikto.txt
 │   │   └── sqlmap/
+│   │
 │   └── report_{scan_id}.pdf
-├── requirements.txt        ← Python dependencies
-├── .gitignore
-├── README.md
-└── chrome_extension/       ← Browser extension
+│
+└── chrome_extension/
     ├── manifest.json
     └── popup.html
 ```
 
 ---
 
-## Kali Setup (Recommended)
+# ⚡ Quick Start (Kali Linux Recommended)
 
-Use the full, updated Kali runbook at repo root:
+## Prerequisites
 
-- `../RUN_LOCAL.md`
+* Kali Linux (or Debian-based distribution)
+* Python 3.10+
+* Nmap installed
+* Nikto installed
+* SQLMap installed
+* OpenRouter API Key
 
-It includes:
-- Prerequisite installation (`python3`, `venv`, `nmap`, `nikto`, `sqlmap`, `node`, `npm`)
-- Backend and frontend startup in separate terminals
-- `.env.local` API wiring to `http://127.0.0.1:5000`
-- Scanner verification and troubleshooting
-- End-to-end validation flow (auth -> target -> scan -> report download)
+---
 
-### Fast start (Kali)
+## 1️⃣ Clone the Repository
 
 ```bash
-# Terminal A
+git clone https://github.com/jadebluestar/vulnscope.git
+
 cd vulnscope
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python3 app.py
-```
-
-```bash
-# Terminal B
-cd vulnscope/frontend
-npm install
-echo "NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:5000" > .env.local
-npm run dev
-```
-
-Backend: `http://127.0.0.1:5000`  
-Frontend: `http://127.0.0.1:3000`
-
-## Quick Start
-
-### Prerequisites
-
-- Kali Linux (recommended) or any Debian-based Linux
-- Python 3.10+
-- Nmap, Nikto, SQLMap installed
-- OpenRouter API key (free at [openrouter.ai](https://openrouter.ai))
-
-### 1 — Clone the repo
-
-```bash
-git clone https://github.com/yourusername/vulnscope.git
-cd vulnscope
-```
-
-### 2 — Install Python dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3 — Add your OpenRouter API key
-
-Open `app.py` and replace line 18:
-```python
-OPENROUTER_KEY = "sk-or-v1-your-key-here"
-```
-
-### 4 — Start the backend
-
-```bash
-python3 app.py
-```
-
-Backend runs at `http://localhost:5000`
-
-### 5 — Connect the frontend
-
-In your React/Next.js frontend set:
-```typescript
-const API_BASE = "http://localhost:5000"
-```
-
-### 6 — (Optional) Expose publicly with ngrok
-
-```bash
-ngrok http 5000
-# Use the generated URL in your frontend instead of localhost
 ```
 
 ---
 
-## API Reference
+## 2️⃣ Install Dependencies
 
-All endpoints require `Authorization: Bearer <token>` header (except `/auth/login` and `/auth/register`).
+```bash
+pip install -r requirements.txt
+```
 
-| Method | Endpoint                        | Description                    |
-|--------|---------------------------------|--------------------------------|
-| POST   | `/auth/register`                | Create account                 |
-| POST   | `/auth/login`                   | Login → returns token          |
-| GET    | `/auth/me`                      | Get current user               |
-| POST   | `/auth/logout`                  | Logout                         |
-| GET    | `/dashboard/bootstrap`          | Get all data for dashboard     |
-| POST   | `/targets`                      | Add a scan target              |
-| PUT    | `/targets/:id`                  | Update target                  |
-| DELETE | `/targets/:id`                  | Delete target                  |
-| POST   | `/scans`                        | Start a new scan               |
-| GET    | `/scans/:id/pipeline`           | Poll scan progress             |
-| GET    | `/reports`                      | List all completed reports     |
-| GET    | `/reports/:scanId`              | Download PDF report            |
-| POST   | `/findings/:id/accept-fix`      | Mark fix as accepted           |
-| POST   | `/findings/:id/reject-fix`      | Mark fix as rejected           |
-| POST   | `/settings`                     | Save user settings             |
+---
 
-### Start a Scan — Example
+## 3️⃣ Configure OpenRouter API Key
+
+Open `app.py` and update:
+
+```python
+OPENROUTER_KEY = "sk-or-v1-your-key-here"
+```
+
+---
+
+## 4️⃣ Start the Backend
+
+```bash
+python3 app.py
+```
+
+Backend:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## 5️⃣ Start the Frontend
+
+Open a second terminal:
+
+```bash
+cd frontend
+
+npm install
+
+echo "NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:5000" > .env.local
+
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## 6️⃣ Optional: Public Access via ngrok
+
+```bash
+ngrok http 5000
+```
+
+Use the generated URL inside the frontend configuration.
+
+---
+
+# 🔍 Scan Modes
+
+## Aggressive Mode
+
+**For local and authorized targets only**
+
+Automatically enabled when the target contains:
+
+```text
+localhost
+127.0.0.1
+192.168.x.x
+```
+
+### Tests Performed
+
+* SQL Injection
+* Reflected XSS
+* Stored XSS
+* Command Injection
+* Directory Traversal
+* Brute Force Checks
+* CSRF
+* Missing Security Headers
+* Open Port Discovery
+
+---
+
+## Passive Mode
+
+**For public websites**
+
+### Tests Performed
+
+* HTTP Security Header Analysis
+* HTTPS Enforcement
+* Server Version Disclosure
+* Open Ports
+* robots.txt Analysis
+* Sensitive File Discovery
+
+  * `.env`
+  * `.git`
+  * `phpinfo.php`
+
+---
+
+## ⚠️ Legal Notice
+
+Aggressive Mode must only be used on systems you own or have explicit written permission to test.
+
+Unauthorized penetration testing may violate local laws and regulations.
+
+Passive Mode performs read-only reconnaissance activities.
+
+---
+
+# 🔌 Chrome Extension
+
+### Installation
+
+1. Open Chrome
+2. Navigate to:
+
+```text
+chrome://extensions
+```
+
+3. Enable **Developer Mode**
+4. Click **Load Unpacked**
+5. Select:
+
+```text
+chrome_extension/
+```
+
+6. Pin the VulnScope extension
+7. Click the extension icon
+
+The extension automatically detects the current tab URL and communicates with the local VulnScope backend.
+
+---
+
+# 🧪 Setting Up the DVWA Testing Lab
+
+For safe vulnerability testing:
+
+```bash
+sudo apt update
+
+sudo apt install dvwa -y
+
+sudo systemctl start mysql
+
+sudo systemctl start apache2
+
+sudo dvwa-start
+```
+
+Visit:
+
+```text
+http://localhost/dvwa
+```
+
+### Default Credentials
+
+```text
+Username: admin
+Password: password
+```
+
+Set security level:
+
+```text
+Security = Low
+```
+
+---
+
+# 🔗 API Reference
+
+All endpoints require:
+
+```http
+Authorization: Bearer <token>
+```
+
+except:
+
+```text
+/auth/login
+/auth/register
+```
+
+| Method | Endpoint                 | Description             |
+| ------ | ------------------------ | ----------------------- |
+| POST   | /auth/register           | Create account          |
+| POST   | /auth/login              | Login and receive token |
+| GET    | /auth/me                 | Current user            |
+| POST   | /auth/logout             | Logout                  |
+| GET    | /dashboard/bootstrap     | Dashboard data          |
+| POST   | /targets                 | Add target              |
+| PUT    | /targets/:id             | Update target           |
+| DELETE | /targets/:id             | Delete target           |
+| POST   | /scans                   | Start scan              |
+| GET    | /scans/:id/pipeline      | Scan progress           |
+| GET    | /reports                 | List reports            |
+| GET    | /reports/:scanId         | Download report         |
+| POST   | /findings/:id/accept-fix | Accept fix              |
+| POST   | /findings/:id/reject-fix | Reject fix              |
+| POST   | /settings                | Save settings           |
+
+---
+
+# 🚀 Start a Scan
+
+### Request
 
 ```bash
 curl -X POST http://localhost:5000/scans \
-  -H "Authorization: Bearer your-token" \
-  -H "Content-Type: application/json" \
-  -d '{"targetUrl": "http://localhost/dvwa"}'
+-H "Authorization: Bearer your-token" \
+-H "Content-Type: application/json" \
+-d '{
+      "targetUrl":"http://localhost/dvwa"
+    }'
 ```
 
-Response:
+### Response
+
 ```json
 {
   "id": "abc12345",
@@ -217,120 +403,85 @@ Response:
 }
 ```
 
-### Poll Progress
+---
+
+# 📈 Poll Scan Progress
+
+### Request
 
 ```bash
 curl http://localhost:5000/scans/abc12345/pipeline \
-  -H "Authorization: Bearer your-token"
+-H "Authorization: Bearer your-token"
 ```
 
-Response:
+### Response
+
 ```json
 {
   "status": "running",
   "progress": 65,
   "message": "Running SQLMap...",
   "stages": [
-    {"name": "Nmap Port Scan",   "status": "done"},
-    {"name": "Nikto Web Scan",   "status": "done"},
-    {"name": "Header Analysis",  "status": "done"},
-    {"name": "SQLMap Injection", "status": "running"},
-    {"name": "Custom Tests",     "status": "pending"},
-    {"name": "AI Analysis",      "status": "pending"},
-    {"name": "PDF Generation",   "status": "pending"}
+    {"name":"Nmap Port Scan","status":"done"},
+    {"name":"Nikto Web Scan","status":"done"},
+    {"name":"Header Analysis","status":"done"},
+    {"name":"SQLMap Injection","status":"running"},
+    {"name":"Custom Tests","status":"pending"},
+    {"name":"AI Analysis","status":"pending"},
+    {"name":"PDF Generation","status":"pending"}
   ]
 }
 ```
 
 ---
 
-## Scan Modes
+# 📚 Research Foundation
 
-### Aggressive Mode (local/authorised targets only)
-Triggers automatically when URL contains `localhost`, `127.0.0.1`, or `192.168.x.x`.
+VulnScope is informed by contemporary cybersecurity and AI-assisted security research.
 
-Tests: SQL injection, XSS (reflected + stored), command injection, directory traversal, brute force, CSRF, missing headers, open ports.
-
-### Passive Mode (any public website — fully legal)
-Triggers for all external URLs.
-
-Tests: HTTP security headers, server version disclosure, open ports, exposed sensitive files (`.env`, `.git`, `phpinfo.php`), robots.txt analysis, HTTPS enforcement.
-
-> ⚠️ **Legal Notice:** Only use Aggressive Mode on systems you own or have written permission to test. Passive Mode only performs read-only reconnaissance. Unauthorised penetration testing is illegal.
-
----
-
-## Chrome Extension
-
-### Install for Demo (no Web Store needed)
-
-1. Open Chrome → go to `chrome://extensions`
-2. Enable **Developer Mode** (top right)
-3. Click **Load unpacked**
-4. Select the `chrome_extension/` folder
-5. Click the VulnScope icon in your toolbar
-
-The extension auto-fills the current tab's URL and connects to your local Flask backend.
+| Research Work                      | Relevance               |
+| ---------------------------------- | ----------------------- |
+| Alghawazi et al. (MDPI, 2022)      | SQL Injection review    |
+| Hosam et al. (IEEE ISCMI, 2021)    | ML-based SQLi detection |
+| Kissoon & Bekaroo (Springer, 2024) | Hybrid XSS detection    |
+| Happe & Cito (ACM ESEC/FSE, 2023)  | LLM-assisted pentesting |
+| Ferrag et al. (IEEE Access, 2024)  | AI threat detection     |
+| IEEE ICITISEE Review (2023)        | Security reporting gap  |
 
 ---
 
-## Setting Up the Lab (DVWA)
-
-For testing with a safe vulnerable target:
+# 🤝 Contributing
 
 ```bash
-# Install DVWA on Kali Linux
-sudo apt update
-sudo apt install dvwa -y
-sudo systemctl start mysql
-sudo systemctl start apache2
-sudo dvwa-start
+# Fork the repository
 
-# Visit in browser
-http://localhost/dvwa
-# Login: admin / password
-# Set security to: Low
+git checkout -b feature/your-feature
+
+git commit -m "Add your feature"
+
+git push origin feature/your-feature
 ```
 
----
-
-## Research Backing
-
-VulnScope is research-informed. Key papers:
-
-| Paper | Relevance |
-|-------|-----------|
-| Alghawazi et al., MDPI 2022 | SQLi systematic review → SQLMap integration |
-| Hosam et al., IEEE ISCMI 2021 | ML-based SQLi detection → payload coverage |
-| Kissoon & Bekaroo, Springer 2024 | XSS hybrid detection → Nikto + custom probes |
-| Happe & Cito, ACM ESEC/FSE 2023 | LLMs for pentesting → AI fix generation |
-| Ferrag et al., IEEE Access 2024 | LLMs for threat detection → AI layer design |
-| IEEE ICITISEE 2023 Review | Reporting gap → Python report generator |
-
-Full bibliography in the IEEE paper (`vulnscope_ieee_paper.tex`).
+Then open a Pull Request.
 
 ---
 
-## Contributing
+# 📄 License
 
-1. Fork the repo
-2. Create a branch: `git checkout -b feature/your-feature`
-3. Commit your changes: `git commit -m "Add your feature"`
-4. Push: `git push origin feature/your-feature`
-5. Open a Pull Request
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for details.
 
 ---
 
-## License
+# 👨‍💻 Authors
 
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-## Authors
-
-Built as a Final Year Engineering Project — Cybersecurity Stream, 2024–25.
+Developed as a Final Year Engineering Project in Cybersecurity (2024–2025).
 
 ---
 
-*VulnScope: Because finding vulnerabilities is only half the job. Fixing them is the other half.*
+# ⭐ Motto
+
+> **"Finding vulnerabilities is only half the job. Fixing them is the other half."**
+>
+> — VulnScope
